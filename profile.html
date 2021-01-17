@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="grid.css"/>
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="style-profile.css"/>
+    <link rel="stylesheet" href="style-header.css"/>
+    <link rel="stylesheet" href="style-write-caption.css"/>
+    <link rel="stylesheet" href="style-grid-image-gallery.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="croppie.css"/>
+
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css">
+</head>
+<body>
+    <header class="header" id="header">
+    </header>
+    <content class="home-profile">
+        <div class="container-profile">
+            <div class="profile-header">
+                <div class="background-image-cover">
+                    <img class="img-cover" src="https://scontent.fdad2-1.fna.fbcdn.net/v/t1.0-9/39467998_427717310968396_7163228636173041664_n.jpg?_nc_cat=107&ccb=2&_nc_sid=e3f864&_nc_ohc=paYd0DdWfc0AX_d8GqX&_nc_ht=scontent.fdad2-1.fna&oh=b6187d86f7e5dc9edc100f330d87f207&oe=6005027B" />
+
+                    <div class="div-img-avatar">
+                        <img src="https://scontent.fdad2-1.fna.fbcdn.net/v/t1.0-9/65317599_572424933164299_5197280396642877440_n.jpg?_nc_cat=107&ccb=2&_nc_sid=09cbfe&_nc_ohc=sUm5ONaFetgAX-34XEV&_nc_ht=scontent.fdad2-1.fna&oh=e519fa241a0198ca35b5fac96465a341&oe=6001E0E5" /> 
+                    </div>
+        
+                </div>
+                <div class="background-image-profile">
+                    <div class="background-image-profile-item background-image-profile-item-image">
+                        <div class="div-img-image-profile col-lg-6">
+                            
+                        </div>
+
+                        <div class="div-img-image-profile col-lg-6">
+                            <h1 id="username">Admin</h1>
+                            <p id="email">@admin</p>
+                        </div>
+                    </div>
+
+                    <div class="background-image-profile-item">
+                        <ul class="follow-list">
+                            <li class="col-lg-4 follow-item">
+                                <span >12</span>
+                                <p>Post</p>
+                            </li>
+                            <li class="col-lg-4 follow-item">
+                                <span>512</span>
+                                <p>Followers</p>
+                            </li>
+                            <li class="col-lg-4 follow-item">
+                                <span>1224</span>
+                                <p>Following</p>
+                            </li>
+
+                        </ul>
+                    </div>
+        
+                </div>
+            </div>
+            <div class="profile-content">
+                <div class="col-lg-4">
+                    <div class="write-caption">
+                        <div class="write-caption-text">
+                            <div class="write-caption-text-div-img">
+                                <img src="https://scontent-xsp1-1.cdninstagram.com/v/t51.2885-19/s320x320/122127620_1598865100285836_7887539621983473157_n.jpg?_nc_ht=scontent-xsp1-1.cdninstagram.com&_nc_ohc=H6FUCg96xVIAX-vwzjK&tp=1&oh=85f85f398e2ed0860d4c8abcd8fde87b&oe=5FFD9C10" />
+                            </div>
+                            <div class="write-caption-text-div-text">
+                                <input type="text" placeholder="Bạn đang nghĩ gì?">
+                            </div>
+                        </div>
+                        <div class="write-caption-tools row">
+                            <div class="write-caption-tools-div-item">
+                                 <button class="write-caption-tools-item-image">
+                                <i class="fa fa-picture-o" aria-hidden="true"></i>
+                                <span>Image</span>
+                            </button>
+                            </div>
+                            <div class="write-caption-tools-div-item ">
+                                 <button class="write-caption-tools-item-local">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                <span>Local</span>
+                            </button>
+                            </div>
+                            <div class="write-caption-tools-div-item">
+                                <button class="write-caption-tools-item-addfriend">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                <span>Add friend</span>
+                            </button>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 grid-image-gallery-profile">
+                </div>
+            </div>
+        </div>
+        <div class="modal" tabindex="-1" role="dialog">
+                <div class="modal-body">
+                    <div id="cropava" class="img-responsive"></div>
+                </div>
+            </div>
+          </div>
+    </content>
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
+<script src="js/croppie.js"></script>
+<script src="js/main.js"></script>
+<script src="js/profile.js"></script>
+<script>
+    getOtherUser();
+    getPosts();
+</script>
+</html>

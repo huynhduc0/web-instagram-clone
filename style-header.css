@@ -1,0 +1,78 @@
+.header {
+
+    background-color: #000;
+    overflow: hidden;
+    /* border: solid 0.1px #ff0000; */
+}
+
+.home-header-container,
+.home-content-newsfeed-container {
+    padding: 0 10%;
+    overflow: hidden;
+}
+
+.home-header-div-logo {
+    display: inline-block;
+
+}
+
+.home-header-div-logo img,
+.home-header-div-logo h1 {
+    display: inline-block;
+    color: #fff;
+}
+
+/* //#171717 */
+.home-header-search {
+    /* background-color: #171717; */
+    position: relative;
+    display: inline-block;
+}
+
+.home-header-search input {
+    outline: none;
+    width: 100%;
+    border-radius: 30px;
+    padding: 20px 40px 20px 10%;
+    text-transform: capitalize;
+    font-size: 18px;
+    background-color: #4F4F4F;
+    border: none;
+    color: #fff;
+}
+
+.home-header-search::before {
+    position: absolute;
+    content: "\f002";
+    font-family: fontawesome;
+    top: 50%;
+    left: 7%;
+    color: #999999;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+.home-header-navbar {
+    display: inline-block;
+}
+
+.home-header-navbar-list,
+.home-header-navbar-item {
+    color: #fff;
+    display: inline-block;
+    font-size: 40px;
+    padding: 0 15px;
+}
+
+.home-header-navbar-item {
+    list-style-type: none;
+}
+.div-notification .notification .relative-friend-list .relative-friend-list-item {
+font-size: unset;
+}
+.home-header-navbar-item-avatar img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    vertical-align: middle;
+}

@@ -1,0 +1,54 @@
+.discovery-container {
+    overflow: hidden;
+    background-color: #171717;
+    padding: 0 10%;
+}
+.discovery-content {
+    overflow: hidden;
+}
+.column-discovery h1 {
+    color: #fff;
+    text-align: center;
+    padding: 50px 0;
+}
+.column-navbar-item {
+    color: #fff;
+    text-align: center;
+    border-radius: 20px;
+    padding: 30px;
+    margin: 15px;
+
+}
+
+.column-navbar-item i {
+    font-size: 40px;
+
+}
+.column-navbar-item-travel {
+    background-color: #83D9F0;
+}
+
+.column-navbar-item-style {
+    background-color: #FD649C;
+}
+
+
+.column-navbar-item-art {
+    background-color: #F76C4B;
+}
+
+.column-navbar-item-food {
+    background-color: #F2C94C;
+}
+
+
+.column-navbar-item-game {
+    background-color: #8CFFCB;
+}
+.column-navbar-item-plant {
+    background-color: #83D9F0;
+}
+
+.column-navbar-item-pet {
+    background-color: #E47387;
+}

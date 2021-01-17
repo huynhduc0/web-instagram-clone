@@ -1,0 +1,47 @@
+.background-image-cover img {
+    width: 100%;
+}
+.background-image-profile {
+    overflow: hidden;
+}
+.background-image-cover {
+    position: relative;
+}
+.div-img-avatar {
+    position: absolute;
+    bottom: -20%;
+    left: 8%;
+}
+
+.follow-item {
+    text-align: center;
+}
+.div-img-avatar img {
+    width: 200px;
+    border-radius: 50%;
+    border: solid 4px #000;
+}
+.background-image-profile h1, .background-image-profile p, .background-image-profile span {
+    color: #fff;
+}
+.img-cover {
+    max-height: 500px;
+    border-radius: 20px;
+}
+.background-image-profile-item {
+    display: inline-block;
+    float: left;
+    width: 50%;
+}
+.container-profile {
+    overflow: hidden;
+    background-color: #171717;
+    padding: 0 10%;
+
+}
+
+.profile-content {
+    overflow: hidden;
+    margin: 0 -15px;
+}
+

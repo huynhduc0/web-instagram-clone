@@ -1,0 +1,54 @@
+
+/* caption */
+.write-caption-text-div-img {
+    padding-right: 15px;
+}
+.write-caption-text-div-img img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+.write-caption {
+    padding: 15px;
+    overflow: hidden;
+    background-color: #000;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+.write-caption-text-div-img,.write-caption-text-div-text {
+    display: inline-block;
+}
+.write-caption-text-div-text input {
+    outline: none;
+    width: inherit;
+    border-radius: 30px;
+    padding: 15px 20px;
+    text-transform: capitalize;
+    font-size: 18px;
+    background-color: #4F4F4F;
+    border: none;
+    color: #fff;
+}
+.write-caption-tools {
+    /* padding: 15px 0; */
+    display: flex;
+    margin-bottom: -15px;
+}
+.write-caption-tools button {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background-color: #4F4F4F;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #fff;
+}
+.write-caption-tools button:hover {
+    cursor: pointer;
+}
+.write-caption-tools {
+    overflow: hidden;
+}

@@ -1,0 +1,223 @@
+.details-container {
+    overflow: hidden;
+    background-color: #000;
+    margin-top: 1%;
+    margin-right:5%;
+    margin-left: 5%;
+    margin-bottom: 10%;
+    border-radius: 15px;
+    display: flex;
+  justify-content: space-between;
+
+}
+
+.details-content {
+    overflow: hidden;
+    position: relative;
+    display: block;
+    background-color: #4F4F4F;
+}
+.details-content-small {
+    height: 400px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+.details-content-small::-webkit-scrollbar {
+    display: none;
+}
+.btn-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.btn-close i {
+    font-size: 40px;
+    color: #fff;
+}
+
+.div-details-div-img-main img {
+    border-radius: 15px;
+    width: 100%;
+}
+
+.div-details-div-img-main {
+    position: relative;
+}
+
+.div-details-div-like-btn {
+    position: absolute;
+    padding: 10px;
+    bottom: 0;
+    left: 0;
+    cursor: pointer;
+}
+.div-details-div-not-like-btn {
+    position: absolute;
+    padding: 10px;
+    bottom: 0;
+    left: 0;
+    cursor: pointer;
+}
+.div-details-div-like-btn button {
+    background-color: #F31F69;
+    border-radius: 20px;
+    padding: 10px;
+    outline: none;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+}
+.div-details-div-not-like-btn button {
+    background-color: gray;
+    border-radius: 20px;
+    padding: 10px;
+    outline: none;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+}
+.details-item-div-img {
+    width: 70px;
+    height: 70px;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.details-item-div-img img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.details-item-div-text {
+    display: inline-block;
+    color: #fff;
+    vertical-align: top;
+}
+
+.home-content-details-item-div-tag {
+    display: inline-block;
+    color: #fff;
+}
+
+.details-header-div-avatar-div-1 {
+    position: relative;
+    padding: 10px 0;
+}
+
+.home-content-details-item-div-tag {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.three-dots-details {
+    font-size: 40px;
+}
+
+.details-header-div-avatar {
+    margin: -10px 0;
+}
+
+.details-header-div-caption-div-2 {
+    display: block;
+    color: #fff;
+    padding: 10px 0;
+}
+
+.details-content-item .details-content-item-div-img {
+    /* width: 90px !important; */
+    /* height: 70px; */
+    /* display: inline-block; */
+    margin-right: 10px;
+}
+
+.details-content-item .details-content-item-div-img img {
+    width: 50px;
+    padding-right: 17px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.details-content-item .details-content-item-div-text {
+    display: inline-block;
+    color: #fff;
+    vertical-align: middle;
+}
+
+.details-content-item .details-content-item-div-text p {
+    white-space: normal;
+}
+
+.details-content-item .details-content-item-div-text p strong {
+    cursor: pointer;
+}
+
+.details-content-item {
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+.write-comment-div-img {
+    width: 70px;
+    height: 70px;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.write-comment-div-img img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.write-comment-write-now {
+    display: inline-block;
+    position: relative;
+    width: calc(100% - 80px);
+}
+
+.btn-write-comment-write-now-post {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    color: yellowgreen;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-weight: bold;
+}
+
+.write-comment-write-now input {
+    outline: none;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 25px;
+    border: solid 1px #fff;
+    width: 100%;
+    padding: 0 55px 0 20px;
+    color: #fff;
+
+}
+
+.write-comment {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: 15px;
+    
+}
+.details-right {
+    position: relative;
+    margin-left: -15px;
+}

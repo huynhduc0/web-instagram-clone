@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+      <style>
+        .full_modal-dialog {
+          width: 98% !important;
+          height: 92% !important;
+          min-width: 98% !important;
+          min-height: 92% !important;
+          max-width: 98% !important;
+          max-height: 92% !important;
+          padding: 0 !important;
+        }
+        .iziModal .iziModal-button {
+          height: 50px !important;
+          width: 50px !important;
+          color: #FFF !important;
+          z-index: 999 !important;
+        }
+        .iziModal .iziModal-header{
+          box-shadow: none !important;
+          height: 60px !important;
+        }
+      </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="grid.css"/>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="style.css"/>
+<link rel="stylesheet" href="style-newsfeed.css"/>
+<link rel="stylesheet" href="style-header.css"/>
+<link rel="stylesheet" href="style-write-caption.css"/>
+<link rel="stylesheet" href="style-notification.css"/>
+<link rel="stylesheet" href="modal.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/css/iziModal.css" integrity="sha512-pH06JFjxM84j7iRF99/Cw7d9R9m2mVmEVr8oI0kK8gVkr461DI+8OYpQctHUrbmdOH7oaRyDRkkCVlQIQCFEiQ==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.css" integrity="sha512-DIW4FkYTOxjCqRt7oS9BFO+nVOwDL4bzukDyDtMO7crjUZhwpyrWBFroq+IqRe6VnJkTpRAS6nhDvf0w+wHmxg==" crossorigin="anonymous" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha512-tDXPcamuZsWWd6OsKFyH6nAqh/MjZ/5Yk88T5o+aMfygqNFPan1pLyPFAndRzmOWHKT+jSDzWpJv8krj6x1LMA==" crossorigin="anonymous" />
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tippy.js/2.5.4/tippy.css" integrity="sha512-wYhtIFU+mDV48662uSmS8BA6uIuSRXB15B014+WdZgtU1Umfn/v8+Yq3hidRunKqTBmhBijyyuqSzCxmj6KlTg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.2/iconfont/material-icons.min.css" integrity="sha512-y9glprRcVESvYY3suAqBUYXx0ySbQNvbzzgvLy9F2o38Y7XCNeq/No2gnHjV3+Rjyq5ijoPZRMXotpdw6jcG4g==" crossorigin="anonymous" />
+</head>
+<body>
+    <header class="header" id="header">
+    </header>
+    <content class="home-content">
+        <div class="container-newsfeed">
+            <div class="col-lg-8">
+                <section class="home-story">
+                    <ul class="home-story-list">
+                        <li class="home-story-list-item">
+                            <img src="https://scontent-xsp1-1.cdninstagram.com/v/t51.2885-19/s320x320/122127620_1598865100285836_7887539621983473157_n.jpg?_nc_ht=scontent-xsp1-1.cdninstagram.com&_nc_ohc=H6FUCg96xVIAX-vwzjK&tp=1&oh=85f85f398e2ed0860d4c8abcd8fde87b&oe=5FFD9C10">
+                        </li>
+                    </ul>
+                </section>
+                <section class="home-content-newsfeed">                
+                </section>
+            </div>
+            <div class="col-lg-4">
+                <div class="write-caption">
+                    <div class="write-caption-text">
+                        <div class="write-caption-text-div-img">
+                            <img src="https://scontent-xsp1-1.cdninstagram.com/v/t51.2885-19/s320x320/122127620_1598865100285836_7887539621983473157_n.jpg?_nc_ht=scontent-xsp1-1.cdninstagram.com&_nc_ohc=H6FUCg96xVIAX-vwzjK&tp=1&oh=85f85f398e2ed0860d4c8abcd8fde87b&oe=5FFD9C10" />
+                        </div>
+                        <div class="write-caption-text-div-text">
+                            <input type="text" placeholder="Bạn đang nghĩ gì?">
+                        </div>
+                    </div>
+                    <div class="write-caption-tools row">
+                        <div class="write-caption-tools-div-item modalTrigger" data-toggle="modal" data-target="#exampleModal">
+                             <button class="write-caption-tools-item-image">
+                            <i class="fa fa-picture-o" aria-hidden="true"></i>
+                            <span>Image</span>
+                        </button>
+                        </div>
+                        <div class="write-caption-tools-div-item ">
+                             <button class="write-caption-tools-item-local">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            <span>Local</span>
+                        </button>
+                        </div>
+                        <div class="write-caption-tools-div-item">
+                            <button class="write-caption-tools-item-addfriend">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                            <span>Add friend</span>
+                        </button>
+                        </div> 
+                    </div>
+                </div>
+                <div class="relative-friend">
+                </div>
+            </div>
+        </div>
+              <!-- Modal -->
+              
+              <!-- <div  id="detailModal" class="modal " >
+                <div role="document" class="modal-dialog full_modal-dialog">
+                  <div class="modal-content full_modal-content">
+                    <iframe name="iframe2" src="/details.html?id=11"></iframe>
+                  </div>
+                </div>
+              </div> -->
+              <div class="izimodal-iframe"
+              data-title=" "   id="detailModal" tabindex="-1" role="dialog" aria-labelledby="detailModalLabel" aria-hidden="true">
+                <div role="document" class="modal-dialog full_modal-dialog">
+                  <div class="modal-content full_modal-content">
+                </div>
+              </div>
+              </div>
+
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div role="document" class="modal-dialog ">
+                  <div class="modal-content ">
+                    <div class="indicator"></div>
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel"> Add new post</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="media mb-3">
+                        <img src="" id="avatar_modal" class="mr-3 images" alt="...">
+                        <div class="media-body">
+                          <textarea class="autosize" id="cap" placeholder="add caption..." rows="3" id="note" data-emoji="true"></textarea>
+                          <input type="radio" id="topost" name="to" value="topost">
+                            <label for="topost">To post</label><br>
+                            <input type="radio" id="female" name="gender" value="female">
+                            <label for="female">Female</label><br>
+                          <div class="position-relative">
+                            <input type="file" class="d-none" accept="audio/*|video/*|video/x-m4v|video/webm|video/x-ms-wmv|video/x-msvideo|video/3gpp|video/flv|video/x-flv|video/mp4|video/quicktime|video/mpeg|video/ogv|.ts|.mkv|image/*|image/heic|image/heif" onchange="previewFiles()" id="inputUp" multiple>
+                            <a class="mediaUp mr-4"><i class="material-icons mr-2"  data-tippy="add (Video, Audio, Photo)" onclick="trgger('inputUp')">perm_media</i></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row col-md-12 ml-auto mr-auto preview"></div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary btn-sm" onclick="uploadImg()">Upload</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      
+      </div>
+      
+    </content>
+    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.4.0/perfect-scrollbar.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/js/iziModal.min.js" integrity="sha512-8aOKv+WECF2OZvOoJWZQMx7+VYNxqokDKTGJqkEYlqpsSuKXoocijXQNip3oT4OEkFfafyluI6Bm6oWZjFXR0A==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.6.0/umd/popper.min.js" integrity="sha512-BmM0/BQlqh02wuK5Gz9yrbe7VyIVwOzD1o40yi1IsTjriX/NGF37NyXHfmFzIlMmoSIBXgqDiG1VNU6kB5dBbA==" crossorigin="anonymous"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tippy.js/2.5.4/tippy.all.js" integrity="sha512-jIIh0z4fzfV4cFju6uTH2QY9Q/UrRd09aa35FKbh759/sl4VyIlA9JMbjM3nSFLNESeiih6pzDlsB4GLd0JZlw==" crossorigin="anonymous"></script> -->
+    <script src="https://unpkg.com/tippy.js@4.3.5/umd/index.all.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autosize.js/4.0.2/autosize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js" integrity="sha512-Zq9o+E00xhhR/7vJ49mxFNJ0KQw1E1TMWkPTxrWcnpfEFDEXgUiwJHIKit93EW/XxE31HSI5GEOW06G6BF1AtA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+    <script src="js/upload.js"></script>
+
+</body>
+<script>
+    // getStoriesList();
+    getFeed();
+    getOtherUser();
+    getStoriesList();
+</script>
+</html>
