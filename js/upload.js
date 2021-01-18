@@ -362,9 +362,6 @@ function trgger(e){
     console.log(posts);
     iziToast.info({title: 'waiting',color:'blue',progressBarColor:'blue',message: 'your post is in upload'});
     let res = await fetchApi('add','POST',posts);
-    res.data.medias.map((e)=>{
-        
-    });
     console.log(res);
     if(res.status == 200){
         $('#exampleModal').modal('toggle');

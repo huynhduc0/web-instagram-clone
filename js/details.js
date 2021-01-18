@@ -20,9 +20,10 @@ async function renderDetail(id){
     details =  await getApi(`post/${id}`,"GET",null);
     // console.log(details);
     // $('#main_img').attr("src",retriveImage(details.medias[0].media_url));
+    // 3src="${retriveImage(details.medias[0].media_url)}
     $('.div-details-div-img-main').html(`
     <img id="main_img"
-    src="${retriveImage(details.medias[0].media_url)}"/>
+    "/>
     <div class="${details.like?"div-details-div-like-btn":"div-details-div-not-like-btn"}">
         <button>
             <i class="fa fa-heart" aria-hidden="true"></i>
@@ -31,11 +32,11 @@ async function renderDetail(id){
     </div>
     `);
     $('.details-header-div-avatar').html(`
-    <div class="details-header-div-avatar-div-1">
-        <div class="details-item-div-img">
-            <img src="${retriveImage(details.user.avatar)}"/>
+    <div class="details-header-div-avatar-div-1 wrapper ">
+        <div class="details-item-div-img animate">
+            <img class="animate" src="${retriveImage(details.user.avatar)}"/>
         </div>
-        <div class="details-item-div-text">
+        <div class="details-item-div-text animate">
             <h2
                 class="home-content-details-item-div-info-name">${details.user.fullname}</h2>
             <h4
@@ -56,10 +57,12 @@ async function renderDetail(id){
     const img = new Image();
     img.src = `${retriveImage(details.medias[0].media_url)}`;
     img.onload = function() {
+        $("#main_img").attr('src',retriveImage(details.medias[0].media_url));
         img_h = this.height
         img_w = this.width
         let h = $("#main_img").width()/img_w*img_h*(($(window).width()>800)?0.65:0.65);
         console.log(h);
+        
         $('.details-content-small').height(h);
     }
 }

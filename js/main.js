@@ -12,7 +12,7 @@ console.log(header);
 renderHeader();
 openNotification = false;
 var notifications_list = [];
-
+// $("#detailModal").iziModal();
 async function getApi(route, method, body) {
   let res = await fetch(url + route, {
     method: method,
@@ -82,20 +82,37 @@ function retriveImage(img) {
 }
 function onclickDetail(id) {
   console.log( `/details.html?id=${id}`);
-  $("#detailModal").iziModal({
-    // iframe : true,
+  // alert(id)
+  $('#detailModal').iziModal('destroy');
+
+  $('#detailModal').iziModal({
     openFullscreen:true,
     headerColor: '#4F4F4F',
-    width: '98%',
-    height: '99%',
-    // iframeHeight: '100%',
-    // fullscreen: true,
+    // width: '98%',
+    // height: '99%',
+    iframeHeight: '100%',
+    fullscreen: true,
     iframe: true,
 //     iframeHeight: 800,
-  // closeButton: true, 
-    iframeURL: "/details.html?id="+id
-  });
-  $('#detailModal').iziModal('open')
+    closeButton: true, 
+    iframeURL: `/details.html?id=${id}`
+});
+$('#detailModal').iziModal('open');
+//   $('#detailModal').iziModal('open')
+//   $("#detailModal").iziModal({
+//     // iframe : true,
+//     openFullscreen:true,
+//     headerColor: '#4F4F4F',
+//     // width: '98%',
+//     // height: '99%',
+//     iframeHeight: '100%',
+//     fullscreen: true,
+//     iframe: true,
+// //     iframeHeight: 800,
+//   closeButton: true, 
+//     iframeURL: `/details.html?id=${id}`
+//   });
+  
   // $("#ja").load( "http://instafake.quack/details.html?id=11");
   // window.location.href = `/details.html?id=${id}`;
 }
