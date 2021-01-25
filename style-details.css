@@ -221,3 +221,8 @@
     position: relative;
     margin-left: -15px;
 }
+#main_img{
+    /* height:80% !important;  */
+    max-height: 650px !important;
+    /* width:auto; */
+}

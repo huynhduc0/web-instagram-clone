@@ -13,6 +13,8 @@
         <link rel="stylesheet" href="style-grid-image-gallery.css" />
         <link rel="stylesheet" href="style-discovery.css" />
         <!-- <link rel="stylesheet" href="ghost.scss" /> -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/css/iziModal.css" integrity="sha512-pH06JFjxM84j7iRF99/Cw7d9R9m2mVmEVr8oI0kK8gVkr461DI+8OYpQctHUrbmdOH7oaRyDRkkCVlQIQCFEiQ==" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.css" integrity="sha512-DIW4FkYTOxjCqRt7oS9BFO+nVOwDL4bzukDyDtMO7crjUZhwpyrWBFroq+IqRe6VnJkTpRAS6nhDvf0w+wHmxg==" crossorigin="anonymous" />
 
 
         <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -48,7 +50,7 @@
                         <li class="home-header-navbar-item
                             home-header-navbar-item-avatar col-lg-3">
                             <img
-                                src="https://scontent-xsp1-1.cdninstagram.com/v/t51.2885-19/s320x320/122127620_1598865100285836_7887539621983473157_n.jpg?_nc_ht=scontent-xsp1-1.cdninstagram.com&_nc_ohc=H6FUCg96xVIAX-vwzjK&tp=1&oh=85f85f398e2ed0860d4c8abcd8fde87b&oe=5FFD9C10"
+                                src="/images/cat.png" class="_myavatar"
                                 />
                         </li>
                     </ul>
@@ -60,49 +62,42 @@
 
         <content class="discovery-content">
             <div class="discovery-container">
-
                 <div class="col-lg-2 grid-image-gallery">
                     <div class="column-navbar column-navbar-discovery column">
-                        <div class="column-navbar-item column-navbar-item-travel">
+                        <div class="column-navbar-item column-navbar-item-pop" onclick="loadPopular();">
+                            <i class="fa fa-globe"></i>
+                            <h4 class="column-navbar-item-text">Popular</h4>
+                        </div>
+                        <div class="column-navbar-item column-navbar-item-travel" onclick="refeed('Places')">
                             <i class="fa fa-plane" aria-hidden="true"></i>
                             <h4 class="column-navbar-item-text">Travel</h4>
                         </div>
 
-                        <div class="column-navbar-item column-navbar-item-style">
+                        <div class="column-navbar-item column-navbar-item-style " onclick="refeed('Fashion')">
                             <i class="fa fa-camera" aria-hidden="true"></i>
-                            <h4 class="column-navbar-item-text">Style</h4>
+                            <h4 class="column-navbar-item-text">Fashion</h4>
                         </div>
 
 
-                        <div class="column-navbar-item column-navbar-item-art">
-                            <i class="fa fa-paint-brush" aria-hidden="true"></i>
-                            <h4 class="column-navbar-item-text">Art</h4>
-                        </div>
-
-
-                        <div class="column-navbar-item column-navbar-item-food">
+                        <div class="column-navbar-item column-navbar-item-food" onclick="refeed('Food')">
                             <i class="fa fa-cutlery" aria-hidden="true"></i>
                             <h4 class="column-navbar-item-text">Food</h4>
                         </div>
 
-                        <div class="column-navbar-item column-navbar-item-game">
-                            <i class="fa fa-gamepad" aria-hidden="true"></i>
-                            <h4 class="column-navbar-item-text">Game</h4>
-                        </div>
-
-                        <div class="column-navbar-item column-navbar-item-plant">
+                        <div class="column-navbar-item column-navbar-item-plant" onclick="refeed('Plants')">
                             <i class="fa fa-pagelines" aria-hidden="true"></i>
                             <h4 class="column-navbar-item-text">Plant</h4>
                         </div>
 
-                        <div class="column-navbar-item column-navbar-item-pet">
+                        <div class="column-navbar-item column-navbar-item-pet" onclick="refeed('Home')">
                             <i class="fa fa-paw" aria-hidden="true"></i>
-                            <h4 class="column-navbar-item-text">Pet</h4>
+                            <h4 class="column-navbar-item-text">Home</h4>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-10 grid-image-gallery">
-                    <div class="column-discovery column">
+                
+                <div class="col-lg-10 grid-image-gallery maincontainer">
+                    <!-- <div class="column-discovery column">
                         <h1>Popular</h1>
                         <img src="./images/about.jpg" style="width:100%">
                         <img src="./images/bg_1.jpg" style="width:100%">
@@ -137,12 +132,31 @@
                         <img src="./images/about.jpg" style="width:100%">
                         <img src="./images/bg_1.jpg" style="width:100%">
                     </div>
-                </div>
+                </div> -->
             </div>
-
+            <div class="izimodal-iframe"
+            data-title=" "   id="detailModal" tabindex="-1" role="dialog" aria-labelledby="detailModalLabel" aria-hidden="true">
+              <div role="document" class="modal-dialog full_modal-dialog">
+                <div class="modal-content full_modal-content">
+              </div>
+            </div>
+            </div>
         </content>
-
-
-
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.4.0/perfect-scrollbar.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/js/iziModal.min.js" integrity="sha512-8aOKv+WECF2OZvOoJWZQMx7+VYNxqokDKTGJqkEYlqpsSuKXoocijXQNip3oT4OEkFfafyluI6Bm6oWZjFXR0A==" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.6.0/umd/popper.min.js" integrity="sha512-BmM0/BQlqh02wuK5Gz9yrbe7VyIVwOzD1o40yi1IsTjriX/NGF37NyXHfmFzIlMmoSIBXgqDiG1VNU6kB5dBbA==" crossorigin="anonymous"></script>
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tippy.js/2.5.4/tippy.all.js" integrity="sha512-jIIh0z4fzfV4cFju6uTH2QY9Q/UrRd09aa35FKbh759/sl4VyIlA9JMbjM3nSFLNESeiih6pzDlsB4GLd0JZlw==" crossorigin="anonymous"></script> -->
+        <script src="https://unpkg.com/tippy.js@4.3.5/umd/index.all.min.js" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/autosize.js/4.0.2/autosize.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js" integrity="sha512-Zq9o+E00xhhR/7vJ49mxFNJ0KQw1E1TMWkPTxrWcnpfEFDEXgUiwJHIKit93EW/XxE31HSI5GEOW06G6BF1AtA==" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
+        <script src="js/main.js"></script>
+        <script src="js/upload.js"></script>
+        <script src="js/discovery.js"></script>
     </body>
+    <script>
+        loadPopular();
+    </script>
 </html>

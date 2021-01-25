@@ -5,27 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     
-      <style>
-        .full_modal-dialog {
-          width: 98% !important;
-          height: 92% !important;
-          min-width: 98% !important;
-          min-height: 92% !important;
-          max-width: 98% !important;
-          max-height: 92% !important;
-          padding: 0 !important;
-        }
-        .iziModal .iziModal-button {
-          height: 50px !important;
-          width: 50px !important;
-          color: #FFF !important;
-          z-index: 999 !important;
-        }
-        .iziModal .iziModal-header{
-          box-shadow: none !important;
-          height: 60px !important;
-        }
-      </style>
+     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="grid.css"/>
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
@@ -54,7 +34,7 @@
                 <section class="home-story">
                     <ul class="home-story-list">
                         <li class="home-story-list-item">
-                            <img src="https://scontent-xsp1-1.cdninstagram.com/v/t51.2885-19/s320x320/122127620_1598865100285836_7887539621983473157_n.jpg?_nc_ht=scontent-xsp1-1.cdninstagram.com&_nc_ohc=H6FUCg96xVIAX-vwzjK&tp=1&oh=85f85f398e2ed0860d4c8abcd8fde87b&oe=5FFD9C10">
+                            <img class="_myavatar" src="/images/cat.png">
                         </li>
                     </ul>
                 </section>
@@ -65,32 +45,21 @@
                 <div class="write-caption">
                     <div class="write-caption-text">
                         <div class="write-caption-text-div-img">
-                            <img src="https://scontent-xsp1-1.cdninstagram.com/v/t51.2885-19/s320x320/122127620_1598865100285836_7887539621983473157_n.jpg?_nc_ht=scontent-xsp1-1.cdninstagram.com&_nc_ohc=H6FUCg96xVIAX-vwzjK&tp=1&oh=85f85f398e2ed0860d4c8abcd8fde87b&oe=5FFD9C10" />
+                            <img class="_myavatar" src="/images/cat.png" />
                         </div>
                         <div class="write-caption-text-div-text">
-                            <input type="text" placeholder="Bạn đang nghĩ gì?">
+                            <input type="text" placeholder="What are you today?"  data-toggle="modal" data-target="#exampleModal">
                         </div>
+                        <!-- <div class="write-caption-tools row">
+                          <div class="write-caption-tools-div-item modalTrigger" data-toggle="modal" data-target="#exampleModal">
+                               <button class="write-caption-tools-item-image">
+                              <i class="fa fa-picture-o" aria-hidden="true"></i>
+                              <span>Image</span>
+                          </button>
+                          </div> -->
+                      <!-- </div> -->
                     </div>
-                    <div class="write-caption-tools row">
-                        <div class="write-caption-tools-div-item modalTrigger" data-toggle="modal" data-target="#exampleModal">
-                             <button class="write-caption-tools-item-image">
-                            <i class="fa fa-picture-o" aria-hidden="true"></i>
-                            <span>Image</span>
-                        </button>
-                        </div>
-                        <div class="write-caption-tools-div-item ">
-                             <button class="write-caption-tools-item-local">
-                            <i class="fa fa-map-marker" aria-hidden="true"></i>
-                            <span>Local</span>
-                        </button>
-                        </div>
-                        <div class="write-caption-tools-div-item">
-                            <button class="write-caption-tools-item-addfriend">
-                            <i class="fa fa-plus" aria-hidden="true"></i>
-                            <span>Add friend</span>
-                        </button>
-                        </div> 
-                    </div>
+                    
                 </div>
                 <div class="relative-friend">
                 </div>
@@ -171,6 +140,7 @@
 <script>
     // getStoriesList();
     getFeed();
+    // getRe();
     getOtherUser();
     getStoriesList();
 </script>

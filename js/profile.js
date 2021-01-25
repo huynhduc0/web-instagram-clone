@@ -1,13 +1,17 @@
 var queryString = decodeURIComponent(window.location.search);
 queryString = queryString.substring(1);
 // var id = qs.get("id");
-var current_id 
-if(queryString.split("=").length < 1)
-    current_id = localStorage.getItem("cid")?localStorage.getItem("cid"):cuser.id;
+var current_id
+var cuser  
+if(queryString.split("=").length <= 1){
+    // current_id = localStorage.getItem("cid")?localStorage.getItem("cid"):cuser.id;
+    var cuser = JSON.parse(localStorage.getItem("user"));
+    current_id = cuser.id;
+}
 else 
     current_id = queryString.split("=")[1];
-var cuser = JSON.parse(localStorage.getItem("user"));
-console.log(cuser);
+
+console.log(current_id);
 
 async function getOtherUser(){
     let users = await getApi(`user/${current_id}`,"GET",null);
@@ -56,7 +60,7 @@ function renderProfile(rs){
     $(".background-image-cover").html(
         ` <img class="img-cover" src="${retriveAvatar(rs.user.cover)}"/>
         <div class="div-img-avatar">
-            <img src="${retriveAvatar(rs.user.cover)}" /> 
+            <img src="${retriveAvatar(rs.user.avatar)}" /> 
         </div>`
     );
 }
@@ -65,16 +69,28 @@ function renderPost(posts){
     col = ['<div class="column-profile column">','<div class="column-profile column">','<div class="column-profile column">'];
     posts.map((post,key)=>{
         console.log(key);
-        col[(key%3)]+=`<img style="cursor:pointer" onclick="onclickDetail(${post.id})" src="${retriveAvatar(post.medias[0].media_url)}" style="width:100%">`;
+        col[(key%3)]+=`<img style="cursor:pointer" data-izimodal-open="#modal_${post.id}" src="${retriveAvatar(post.medias[0].media_url)}" style="width:100%">`;
         // row+=`${key%3 == 0?'<div class="column-profile column">':""}
         //         <img src="./images/about.jpg" style="width:100%">
         //     ${(key%3 == 1 && key!=0)?'</div>':""}`
+        col[(key%3)]+= `<div id="modal_${post.id}" data-izimodal-title=" " class="modais"  data-izimodal-transitionin="fadeInDown" data-izimodal-iframeURL="/details.html?id=${post.id}" tabindex="-1" role="dialog" aria-labelledby="detailModalLabel" aria-hidden="true"></div>`
     });
     col.map((c)=>{
         row+=c+"</div>";
     })
     console.log(row);
 $('.grid-image-gallery-profile').append(row);
+$(".modais").iziModal({
+    history: false,
+    iframe : true,
+    fullscreen: true,
+    headerColor: '#4F4F4F',
+    closeButton: true, 
+    group: 'group1',
+    // loop: true,
+    // iframeHeight: '100%',
+    openFullscreen:true,
+});
 }
 async function editProfile(){
     const steps = ['','', '']

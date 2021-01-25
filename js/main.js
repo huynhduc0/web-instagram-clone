@@ -53,9 +53,14 @@ async function getStoriesList() {
   renderStoriesList(stories.content);
 }
 async function getFeed() {
-  var feed = await getApi("feed?sortBy=created", "GET", null);
+  var feed = await getApi("feed?sortBy=created&sortOrder=desc", "GET", null);
   console.log(feed.content[0]);
-  renderHome(feed.content);
+  renderHome(feed.content,false);
+}
+async function getRe() {
+  var feed = await getApi("postRecommend", "GET", null);
+  console.log("ne",feed.content[0]);
+  renderHome(feed.content,true);
 }
 async function addLike(id) {
   const like = await getApi("likes", "GET", { post: { id: id } });
@@ -158,7 +163,7 @@ async function renderNoti() {
                                 <p>${displayDate(e.created)} </p>
                             </div>
                             <div class="notification-item-image-overview">
-                                <img src="${retriveAvatar(e.from.avatar)}" />
+                                <img style="width:50px" src="${retriveAvatar(e.from.avatar)}" />
                             </div>
                         </div>`;
   });
@@ -258,7 +263,7 @@ async function like(id, isLike,des){
   </div>`);
   
 }
-async function renderHome(content) {
+async function renderHome(content,isRe) {
   row = "";
   var cuser = localStorage.getItem("user");
   await content.map(async (post) => {
@@ -284,10 +289,10 @@ async function renderHome(content) {
                           })">
                         <h1 class="home-content-newsfeed-item-div-info-name">${
                           post.user.username
-                        }</h1>
+                        } </h1>
                         <h3 class="home-content-newsfeed-item-div-info-pos">${displayDate(
                           post.created
-                        )}</h3></div>
+                        )} ${(isRe)?" (recommend)":""}</h3></div>
                     </div>
                     <div class="home-content-newsfeed-item-div-tag">
                         <p class="three-dots">
@@ -315,26 +320,27 @@ async function renderHome(content) {
 }
 async function renderHeader() {
   var user = await JSON.parse(localStorage.getItem("user"));
-
+  $('._myavatar').attr('src',retriveAvatar(user.avatar))
   // console.log(user);
 
   content = `<div class="home-header-container">
-    <div class="home-header-div-logo col-lg-3">
-        <h1>APPLONE</h1>
+    <div class="home-header-div-logo col-lg-2">
+        <a href="/"><h1 style="font-size:2em !important">INSTAFAKE</h1></a>
             
     </div>
-    <div class="home-header-search col-lg-5" >
-        <input type="text" placeholder="search">
-
+    <div class="home-header-search col-lg-3" >
+        <input type="text" placeholder="search" style="height:45px">
     </div>
-    <div class="home-header-navbar col-lg-4">
+    <div class="col-lg-3" >
+    </div>
+    <div class="home-header-navbar col-lg-4" style="padding-top:5px; padding-bottom:0">
         <ul class="home-header-navbar-list">
-            <li class="home-header-navbar-item col-lg-3">
+          <a href="/"><li class="home-header-navbar-item col-lg-3">
                 <i class="fa fa-home" aria-hidden="true"></i>
-            </li>
-            <li class="home-header-navbar-item col-lg-3">
+            </li></a>
+            <a href="/discovery.html"><li class="home-header-navbar-item col-lg-3">
                 <i class="fa fa-compass" aria-hidden="true"></i>
-            </li>
+            </li></a>
             <li class="home-header-navbar-item home-header-navbar-item-notification col-lg-3" onclick="renderNoti()">
                 <i class="fa fa-heart-o" aria-hidden="true"></i>
                 

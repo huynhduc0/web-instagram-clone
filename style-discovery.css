@@ -24,6 +24,9 @@
     font-size: 40px;
 
 }
+.column-navbar-item-pop {
+    background-color: orange;
+}
 .column-navbar-item-travel {
     background-color: #83D9F0;
 }
