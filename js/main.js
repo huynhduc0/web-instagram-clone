@@ -1,9 +1,9 @@
 var url = "http://congchuabuoito.southeastasia.cloudapp.azure.com/";
 // var url = "http://localhost:8080/";
 var token = localStorage.getItem("token");
-var cuser = localStorage.getItem("user");
+var cuser = JSON.parse(localStorage.getItem("user"));
 if (!token) window.location.href = "/login";
-console.log(token);
+console.log(cuser);
 var header = new Headers();
 header.append("Content-Type", "application/json");
 header.append("Authorization", token);
@@ -29,6 +29,52 @@ async function getApi(route, method, body) {
   if (res.status == 401) window.location.href = "/login";
   let data = await res.json();
   return data;
+}
+async function viewListOfUser(api){
+  data = await getApi(api);
+  row ="";
+  data.map((user)=>{
+    row+=`
+    <ul class="relative-friend-list">
+            <li class="relative-friend-list-item">
+                <div class="relative-friend-list-item-div-img col-2">
+                    <img onclick="onclickProfile(${
+                      user.id
+                      })" src="${retriveAvatar(user.avatar)}">
+                </div>
+                
+                <div class="relative-friend-list-item-name col-4">
+                    <p><b>${user.username} ${cuser.id == user.id ?" (You) ":""}</b><br> on instafake</p>
+                </div>
+                ${user.id !=  cuser.id?`
+                <div class="relative-friend-list-item-follow-btn-div col-2">
+                    ${
+                      !user.following
+                        ? '<div id="_f_' +
+                          user.id +
+                          '"><button onclick="follow(' +
+                          user.id +
+                          "," +
+                          user.following +
+                          ')" class="follow-btn">Follow</button>'
+                        : '<div id="_f_' +
+                          user.id +
+                          '"><button class="follow-btn" onclick="follow(' +
+                          user.id +
+                          "," +
+                          user.following +
+                          ')"  style="background-color:gray">Unfollow</button>'
+                    }
+                </div>`:""}
+            </li>
+        </ul>`;
+  });
+  $('#userlistModal').iziModal('destroy');
+  $('#userlistModal').iziModal({
+    background: '#4F4F4F'
+  });
+  $('#userlistModal').iziModal('setContent',row);
+  $('#userlistModal').iziModal('open');
 }
 async function fetchApi(route, method, body) {
   let res = await fetch(url + route, {
@@ -87,7 +133,7 @@ function retriveImage(img) {
 }
 function onclickDetail(id) {
   console.log( `/details.html?id=${id}`);
-  // alert(id)
+  // alert(id)()
   $('#detailModal').iziModal('destroy');
 
   $('#detailModal').iziModal({
@@ -189,16 +235,17 @@ function renderOtherUser(content) {
     row = `
        <ul class="relative-friend-list">
             <li class="relative-friend-list-item">
-                <div class="relative-friend-list-item-div-img">
+                <div class="relative-friend-list-item-div-img col-2">
                     <img onclick="onclickProfile(${
                       user.id
                       })" src="${retriveAvatar(user.avatar)}">
                 </div>
                 
-                <div class="relative-friend-list-item-name">
+                <div class="relative-friend-list-item-name col-6">
                     <p><b>${user.username}</b><br> on instafake</p>
                 </div>
-                <div class="relative-friend-list-item-follow-btn-div">
+                ${user.id !=  cuser.id?`
+                <div class="relative-friend-list-item-follow-btn-div col-2">
                     ${
                       !user.following
                         ? '<div id="_f_' +
@@ -216,7 +263,7 @@ function renderOtherUser(content) {
                           user.following +
                           ')"  style="background-color:gray">Unfollow</button>'
                     }
-                </div>
+                </div>`:""}
             </li>
         </ul>`;
     $(".relative-friend").append(row);

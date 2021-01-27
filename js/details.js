@@ -75,8 +75,11 @@ async function renderDetail(id) {
             <p class="three-dots-details">...</p>
         </div>
     </div>
+    
     <div class="details-header-div-caption-div-2">
-                                    <h3>${details.description}</h3>
+    <h4 style="cursor: pointer;" onclick="viewListOfUser('likes/${details.id}')"> ${details.numOfLikes} people like this </h4>
+    <br>
+                                    <h3>${details.description} </h3>
                                 </div>
                                 <br>
     `);

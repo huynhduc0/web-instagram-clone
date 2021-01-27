@@ -43,6 +43,9 @@
 .relative-friend-list-item div {
     display: inline-block;
 }
+.relative-friend ul{
+    margin-bottom:-0.5rem !important;
+}
 .follow-btn {
     border: none;
     outline: none;

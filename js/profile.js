@@ -40,15 +40,15 @@ function renderProfile(rs){
     <div class="background-image-profile-item">
         <ul class="follow-list">
             <li class="col-lg-3 follow-item">
-                <span id="numofposts">0</span>
+                <span id="numofposts">..</span>
                 <p>Post</p>
             </li>
-            <li class="col-lg-3 follow-item">
-                <span>${rs.user.numOfFollowers}</span>
+            <li style="cursor:pointer;" onclick="viewListOfUser('followers/${rs.user.id}')" class="col-lg-3 follow-item">
+                <span >${rs.user.numOfFollowers}</span>
                 <p>Followers</p>
             </li>
-            <li class="col-lg-3 follow-item">
-                <span>${rs.user.numOfFollowings}</span>
+            <li style="cursor:pointer;" onclick="viewListOfUser('followings/${rs.user.id}')" class="col-lg-3 follow-item">
+                <span >${rs.user.numOfFollowings}</span>
                 <p>Following</p>
             </li>
             <li class="col-lg-3 follow-item">
@@ -66,6 +66,7 @@ function renderProfile(rs){
 }
 function renderPost(posts){
     row="";
+    $("#numofposts").html(posts.length)
     col = ['<div class="column-profile column">','<div class="column-profile column">','<div class="column-profile column">'];
     posts.map((post,key)=>{
         console.log(key);
