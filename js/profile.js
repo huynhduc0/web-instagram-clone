@@ -26,6 +26,26 @@ async function getPosts(){
 function editProfile(){
     $("#animatedModal").animatedModal();
 }
+async function follow(id, ed) {
+    // $("#_f_" + id).html(
+    //   ed
+    //     ? '<button id="_f_' +
+    //         id +
+    //         '" onclick="follow(' +
+    //         id +
+    //         "," +
+    //         !ed +
+    //         ')" class="follow-btn">Follow</button>'
+    //     : '<button class="follow-btn" onclick="follow(' +
+    //         id +
+    //         "," +
+    //         !ed +
+    //         ')" style="background-color:gray">Unfollow</button>'
+    // );
+    $("#_f_" + id).attr("class",`${ed}?btn btn-basic:btn btn-primary`);
+    await getApi("follow", "POST", { id: id });
+  }
+  
 function renderProfile(rs){
     row=` 
     <div class="background-image-profile-item background-image-profile-item-image">
@@ -52,7 +72,7 @@ function renderProfile(rs){
                 <p>Following</p>
             </li>
             <li class="col-lg-3 follow-item">
-                <span> ${(rs.followStatus == 0)?'<button class="follow-btn">Follow</button>':(rs.followStatus == -1)?'<button class="follow-btn" onclick=editProfile()>Edit profile</button>':'<button class="follow-btn">Unfollow</button>'}</span>
+                <span> ${(rs.followStatus == 0)?`<button id="_f_${rs.user.id}" onclick="follow(${rs.user.id},${rs.followStatus})" class="follow-btn">Follow</button>`:(rs.followStatus == -1)?'<button  class="follow-btn" onclick=editProfile()>Edit profile</button>':`<button id="_f_${rs.user.id}" onclick="follow(${rs.user.id},${rs.followStatus})"  class="follow-btn">Unfollow</button>`}</span>
             </li>
         </ul>
     </div>`;

@@ -38,7 +38,9 @@ async function nlike(id, isLike){
   `)
 }
 async function renderDetail(id) {
-  details = await getApi(`post/${id}`, "GET", null);
+  details = await fetchApi(`post/${id}`, "GET", null);
+  if(details.status !=200) window.location.href = '/403.html';
+  details = details.data
   // console.log(details);
   // $('#main_img').attr("src",retriveImage(details.medias[0].media_url));
   // 3src="${retriveImage(details.medias[0].media_url)}

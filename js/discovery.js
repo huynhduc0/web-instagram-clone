@@ -10,7 +10,7 @@ async function loadPopular(){
 async function refeed(tag){
     posts = await getApi(`/tags/${tag}`);
     console.log(posts)
-    renderMain(posts.posts, tag)
+    renderMain(posts, tag)
     // posts.content.map()
     
 }

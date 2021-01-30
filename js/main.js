@@ -168,18 +168,25 @@ $('#detailModal').iziModal('open');
   // window.location.href = `/details.html?id=${id}`;
 }
 function onclickProfile(id) {
-  window.location.href = `/profile.html?id=${id}`;
+  window.parent.location.href = `/profile.html?id=${id}`;
 }
 function displayDate(date, preposition) {
   preposition = preposition || "at";
   moment.lang("en", {
     calendar: {
       lastDay: "[Yesterday] [\n][ " + preposition + " ] h:mm a",
-      sameDay: "[Today] [\n][ " + preposition + " ] h:mm a",
+      sameDay: function (now) {
+          let du = moment.duration(now.diff(date))
+          console.log(du._data.hours)
+          if(du._data.hours > 0 )
+            return "[Today] [\n][ " + du._data.hours + "hour ago ]";
+          else 
+            return "[Today] [\n][ " + du._data.minutes + "min ago ]";
+      },
       nextDay: "[Tomorrow] [\n][ " + preposition + " ] h:mm a",
-      lastWeek: "M/D/YY [\n][" + preposition + "] h:mm a",
-      nextWeek: "M/D/YY [\n][" + preposition + "] h:mm a",
-      sameElse: "M/D/YY [\n][" + preposition + "] h:mm a",
+      lastWeek: "D/M/YY [\n][" + preposition + "] h:mm a",
+      nextWeek: "D/M/YY [\n][" + preposition + "] h:mm a",
+      sameElse: "D/M/YY [\n][" + preposition + "] h:mm a",
     },
   });
   return moment(date).calendar();
