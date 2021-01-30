@@ -99,7 +99,7 @@ async function getStoriesList() {
   renderStoriesList(stories.content);
 }
 async function getFeed() {
-  var feed = await getApi("feed?sortBy=created&sortOrder=desc", "GET", null);
+  var feed = await getApi("feed?sortBy=created&sortOrder=desc&size=69", "GET", null);
   console.log(feed.content[0]);
   renderHome(feed.content,false);
 }

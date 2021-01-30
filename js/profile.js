@@ -19,7 +19,8 @@ async function getOtherUser(){
     console.log(users);
 }
 async function getPosts(){
-    let posts = await getApi(`user/${current_id}/post`,"GET",null);
+    let posts = await getApi(`user/${current_id}/post?size=69`,"GET",null);
+    $("#numofposts").html(posts.content.length)
     renderPost(posts.content);
     console.log(posts);
 }
@@ -60,7 +61,7 @@ function renderProfile(rs){
     <div class="background-image-profile-item">
         <ul class="follow-list">
             <li class="col-lg-3 follow-item">
-                <span id="numofposts">..</span>
+                <span id="numofposts">0</span>
                 <p>Post</p>
             </li>
             <li style="cursor:pointer;" onclick="viewListOfUser('followers/${rs.user.id}')" class="col-lg-3 follow-item">
