@@ -9,3 +9,6 @@ Account:
 - nhachonlau/thitchophaicomamtom
 - or choose register
 - or login using google 
+
+* NOTE:
+IMAGE DESCRIPTION (AUTO DETECT SENSE ONLY WORK ON IOS, WEB IS NO WORKING NOW)
